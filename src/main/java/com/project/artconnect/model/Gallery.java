@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Gallery {
+    private String galleryId;
     private String name;
     private String address;
     private String ownerName;
@@ -21,6 +22,9 @@ public class Gallery {
         this.address = address;
         this.rating = rating;
     }
+    public String getGalleryId() { return galleryId; }
+
+    public void setGalleryId(String galleryId) { this.galleryId = galleryId; }
 
     public String getName() {
         return name;

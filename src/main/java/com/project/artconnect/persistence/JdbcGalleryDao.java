@@ -42,7 +42,7 @@ public class JdbcGalleryDao implements GalleryDao {
         try (PreparedStatement stmt = connection.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
-                galleries.add(mapRow(rs));  // mapRow doit être dans CETTE classe
+                galleries.add(mapRow(rs));
             }
         } catch (SQLException e) {
             throw new RuntimeException("Erreur findAll Gallery : " + e.getMessage(), e);
@@ -56,9 +56,9 @@ public class JdbcGalleryDao implements GalleryDao {
         g.setName(rs.getString("Name"));
         g.setAddress(rs.getString("Address"));
         g.setOwnerName(rs.getString("Owner_Name"));
-        g.setOpeningHours(rs.getTimestamp("Opening_Hours").toLocalDateTime());
+        g.setOpeningHours(rs.getString("Opening_Hours"));
         g.setContactPhone(rs.getString("Contact_Phone"));
-        g.setRating(rs.getString("Rating"));
+        g.setRating(rs.getDouble("Rating"));
         g.setWebsite(rs.getString("Website"));
         return g;
     }
