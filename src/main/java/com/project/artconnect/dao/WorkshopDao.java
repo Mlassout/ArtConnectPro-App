@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface WorkshopDao {
-    Optional<Workshop> findById(Long id);
+    Optional<Workshop> findById(String id);
 
     List<Workshop> findAll();
 }

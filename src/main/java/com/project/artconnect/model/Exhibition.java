@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Exhibition {
+    private String exhibitionId;
     private String title;
     private LocalDate startDate;
     private LocalDate endDate;
@@ -22,6 +23,14 @@ public class Exhibition {
         this.startDate = startDate;
         this.endDate = endDate;
         this.gallery = gallery;
+    }
+
+    public String getExhibitionId() {
+        return exhibitionId;
+    }
+
+    public void setExhibitionId(String exhibitionId) {
+        this.exhibitionId = exhibitionId;
     }
 
     public String getTitle() {

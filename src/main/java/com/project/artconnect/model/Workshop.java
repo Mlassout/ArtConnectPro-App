@@ -3,6 +3,7 @@ package com.project.artconnect.model;
 import java.time.LocalDateTime;
 
 public class Workshop {
+    private String workshopId;
     private String title;
     private LocalDateTime date;
     private int durationMinutes;
@@ -21,6 +22,14 @@ public class Workshop {
         this.date = date;
         this.instructor = instructor;
         this.price = price;
+    }
+
+    public String getWorkshopId() {
+        return workshopId;
+    }
+
+    public void setWorkshopId(String workshopId) {
+        this.workshopId = workshopId;
     }
 
     public String getTitle() {

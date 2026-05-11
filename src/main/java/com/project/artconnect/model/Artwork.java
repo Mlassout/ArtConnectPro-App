@@ -7,6 +7,7 @@ import java.util.List;
  * Artwork entity representing a piece created by an artist.
  */
 public class Artwork {
+    private String artworkId;
     private String title;
     private Integer creationYear;
     private String type; // painting, sculpture, etc.
@@ -35,6 +36,15 @@ public class Artwork {
     }
 
     // Getters and Setters
+
+    public String getArtworkId() {
+        return artworkId;
+    }
+
+    public void setArtworkId(String artworkId) {
+        this.artworkId = artworkId;
+    }
+
     public String getTitle() {
         return title;
     }

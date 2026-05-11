@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommunityMember {
+    private String memberId;
     private String name;
     private String email;
     private Integer birthYear;
@@ -20,6 +21,14 @@ public class CommunityMember {
     public CommunityMember(String name, String email) {
         this.name = name;
         this.email = email;
+    }
+
+    public String getMemberId() {
+        return memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
     }
 
     public String getName() {
