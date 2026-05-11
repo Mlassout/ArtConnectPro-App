@@ -2,7 +2,10 @@ package com.project.artconnect.persistence;
 
 import com.project.artconnect.dao.ArtistDao;
 import com.project.artconnect.model.Artist;
+import com.project.artconnect.model.Discipline;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -29,10 +32,9 @@ public class JdbcArtistDao implements ArtistDao {
         artist.setSocialMedia(rs.getString("Social_Media"));
         artist.setActive(rs.getBoolean("Is_Active"));
 
-        // Birth_Year est une DATE en SQL, on extrait juste l'année
-        Date birthDate = rs.getDate("Birth_Year");
-        if (birthDate != null) {
-            artist.setBirthYear(birthDate.toLocalDate().getYear());
+        int birthYear = rs.getInt("Birth_Year");
+        if (!rs.wasNull()) {
+            artist.setBirthYear(birthYear);
         }
 
         return artist;
@@ -55,7 +57,38 @@ public class JdbcArtistDao implements ArtistDao {
             throw new RuntimeException("Erreur findAll Artist : " + e.getMessage(), e);
         }
 
+        loadDisciplines(artists);
         return artists;
+    }
+
+    private void loadDisciplines(List<Artist> artists) {
+        if (artists.isEmpty()) return;
+
+        Map<String, Artist> artistMap = new HashMap<>();
+        for (Artist a : artists) {
+            artistMap.put(a.getArtistId(), a);
+        }
+
+        String sql = """
+                SELECT p.Artist_Id, d.Name
+                FROM Pratiquer p
+                JOIN Discipline d ON p.Discipline_Id = d.Discipline_Id
+                """;
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Artist artist = artistMap.get(rs.getString("Artist_Id"));
+                if (artist != null) {
+                    Discipline discipline = new Discipline(rs.getString("Name"));
+                    artist.getDisciplines().add(discipline);
+                }
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Erreur loadDisciplines : " + e.getMessage(), e);
+        }
     }
 
     @Override
@@ -71,7 +104,11 @@ public class JdbcArtistDao implements ArtistDao {
             stmt.setString(1, artist.getArtistId());
             stmt.setString(2, artist.getName());
             stmt.setString(3, artist.getBio());
-            stmt.setInt(4, artist.getBirthYear());
+            if (artist.getBirthYear() != null) {
+                stmt.setInt(4, artist.getBirthYear());
+            } else {
+                stmt.setNull(4, java.sql.Types.INTEGER);
+            }
             stmt.setString(5, artist.getContactEmail());
             stmt.setString(6, artist.getPhone());
             stmt.setString(7, artist.getCity());

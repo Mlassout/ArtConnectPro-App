@@ -24,10 +24,9 @@ public class JbdcCommunityMemberDao implements CommunityMemberDao {
         member.setCity(rs.getString("City"));
         member.setMembershipType(rs.getString("MemberShip_Type"));
 
-        // Birth_Year est une DATE en SQL, on extrait juste l'année
-        Date birthDate = rs.getDate("Birth_Year");
-        if (birthDate != null) {
-            member.setBirthYear(birthDate.toLocalDate().getYear());
+        int birthYear = rs.getInt("Birth_Year");
+        if (!rs.wasNull()) {
+            member.setBirthYear(birthYear);
         }
 
         return member;

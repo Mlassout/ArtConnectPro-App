@@ -31,10 +31,10 @@ public class JdbcExhibitionDao implements ExhibitionDao {
     public List<Exhibition> findAll() {
         List<Exhibition> exhibitions = new ArrayList<>();
         String sql = """
-        SELECT Exhibition_Id, Title, Start_Date, End_Date, Description,
+        SELECT Exhibition_Id, Exhibition_Title AS Title, Start_Date, End_Date, Description,
                Curator_Name, Theme,
                Gallery_Id, Gallery_Name, Address,
-               Owner_Name, Rating, Website
+               Owner_Name, Rating
         FROM vw_exhibition_gallery
         """;
 
@@ -48,9 +48,7 @@ public class JdbcExhibitionDao implements ExhibitionDao {
                 gallery.setName(rs.getString("Gallery_Name"));
                 gallery.setAddress(rs.getString("Address"));
                 gallery.setOwnerName(rs.getString("Owner_Name"));
-                gallery.setContactPhone(rs.getString("Contact_Phone"));
                 gallery.setRating(rs.getDouble("Rating"));
-                gallery.setWebsite(rs.getString("Website"));
 
                 exhibition.setGallery(gallery);
                 exhibitions.add(exhibition);

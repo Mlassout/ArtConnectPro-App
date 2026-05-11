@@ -1,4 +1,5 @@
 /Users/marc/Documents/Etude Supérieur/Efrei/L3/S6/SQL/Projet/Java/ArtConnectPro-App/src/main/java/com/project/artconnect/dao/GalleryDao.java
+/Users/marc/Documents/Etude Supérieur/Efrei/L3/S6/SQL/Projet/Java/ArtConnectPro-App/src/main/java/com/project/artconnect/persistence/JdbcGalleryDao.java
 /Users/marc/Documents/Etude Supérieur/Efrei/L3/S6/SQL/Projet/Java/ArtConnectPro-App/src/main/java/com/project/artconnect/model/Booking.java
 /Users/marc/Documents/Etude Supérieur/Efrei/L3/S6/SQL/Projet/Java/ArtConnectPro-App/src/main/java/com/project/artconnect/model/Gallery.java
 /Users/marc/Documents/Etude Supérieur/Efrei/L3/S6/SQL/Projet/Java/ArtConnectPro-App/src/main/java/com/project/artconnect/service/impl/InMemoryWorkshopService.java
@@ -9,8 +10,11 @@
 /Users/marc/Documents/Etude Supérieur/Efrei/L3/S6/SQL/Projet/Java/ArtConnectPro-App/src/main/java/com/project/artconnect/service/CommunityService.java
 /Users/marc/Documents/Etude Supérieur/Efrei/L3/S6/SQL/Projet/Java/ArtConnectPro-App/src/main/java/com/project/artconnect/ui/MainController.java
 /Users/marc/Documents/Etude Supérieur/Efrei/L3/S6/SQL/Projet/Java/ArtConnectPro-App/src/main/java/com/project/artconnect/service/impl/InMemoryArtistService.java
+/Users/marc/Documents/Etude Supérieur/Efrei/L3/S6/SQL/Projet/Java/ArtConnectPro-App/src/main/java/com/project/artconnect/persistence/JdbcWorkshopDao.java
 /Users/marc/Documents/Etude Supérieur/Efrei/L3/S6/SQL/Projet/Java/ArtConnectPro-App/src/main/java/com/project/artconnect/service/ArtworkService.java
 /Users/marc/Documents/Etude Supérieur/Efrei/L3/S6/SQL/Projet/Java/ArtConnectPro-App/src/main/java/com/project/artconnect/ui/CommunityController.java
+/Users/marc/Documents/Etude Supérieur/Efrei/L3/S6/SQL/Projet/Java/ArtConnectPro-App/src/main/java/com/project/artconnect/persistence/JbdcCommunityMemberDao.java
+/Users/marc/Documents/Etude Supérieur/Efrei/L3/S6/SQL/Projet/Java/ArtConnectPro-App/src/main/java/com/project/artconnect/persistence/JdbcExhibitionDao.java
 /Users/marc/Documents/Etude Supérieur/Efrei/L3/S6/SQL/Projet/Java/ArtConnectPro-App/src/main/java/com/project/artconnect/model/Review.java
 /Users/marc/Documents/Etude Supérieur/Efrei/L3/S6/SQL/Projet/Java/ArtConnectPro-App/src/main/java/com/project/artconnect/service/GalleryService.java
 /Users/marc/Documents/Etude Supérieur/Efrei/L3/S6/SQL/Projet/Java/ArtConnectPro-App/src/main/java/com/project/artconnect/service/impl/InMemoryGalleryService.java
